@@ -1,0 +1,68 @@
+{
+  "name": "lerna-bili-jes",
+  "version": "1.0.0",
+  "description": "TODO: Fill in details",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "workspaces": [
+    "packages/*"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "precommit": "lint-staged",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
+    "test:prod": "npm run lint && npm run test -- --no-cache",
+    "lint": "eslint 'packages/**/**/*.ts'",
+    "lint-fix": "eslint 'packages/**/**/*.ts' --fix",
+    "build": "bili",
+    "watch": "bili --watch",
+    "docs": "typedoc --options typedoc.js",
+    "release-docs": "typedoc  --exclude node_modules --out output/api --theme minimal --mode file",
+    "release": "lerna publish && bili",
+    "publish": "lerna run tsc && lerna publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shanmugapriyaEK/lerna-bili-jest.git"
+  },
+  "author": "Shanmugapriya Krishnakumar",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@typescript-eslint/eslint-plugin": "^2.1.0",
+    "@typescript-eslint/parser": "^2.1.0",
+    "bili": "^4.8.1",
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.2.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "lerna": "^3.16.4",
+    "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
+    "rollup-plugin-typescript2": "^0.24.0",
+    "ts-jest": "^24.0.2",
+    "typedoc": "^0.15.0",
+    "typedoc-plugin-markdown": "^2.1.10",
+    "typescript": "^3.6.2"
+  },
+  "lint-staged": {
+    "packages/**/**/*.ts": [
+      "npm run lint-fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "release": {
+    "branch": "master"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

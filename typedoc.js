@@ -1,0 +1,16 @@
+module.exports = {
+  out: './docs/',
+  platform: 'bitbucket',
+  theme: 'markdown',
+  module: 'es2015',
+  includes: './packages/**',
+  exclude: ['**/__tests__/**/*', '**/*.types.ts', './packages/template/**/*.ts'],
+  mode: 'file',
+  excludeExternals: true,
+  excludeNotExported: true,
+  excludePrivate: true,
+  excludeProtected: true,
+  target: 'ES6',
+  tsconfig: './tsconfig.json',
+  ignoreCompilerErrors: true,
+};

@@ -1,0 +1,7 @@
+node_modules
+dist
+docs
+coverages
+.rpt2_cache
+output
+coverage
